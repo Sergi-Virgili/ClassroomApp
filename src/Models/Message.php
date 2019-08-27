@@ -23,7 +23,7 @@
 
         }
 
-        function set($topic)
+        function setTopic($topic)
         {
             $this->topic = $topic;
         }

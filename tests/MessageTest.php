@@ -13,9 +13,8 @@ class MessageTest extends TestCase
         
         $message = new Message();
         $message->setId(2);
-        $response = $message->getId();
-
         //Ejecutar escenario del test
+        $response = $message->getId();
         $expected=2;
         //Hacemos assertion del test
         $this->assertEquals($expected, $response);
@@ -23,5 +22,20 @@ class MessageTest extends TestCase
 
     }
 
+    public function testSiloQueReciboDeTopicEsUnString()
+    {
+     
+        $obj = new Message();
+        $obj->setTopic("tengouna duda");
+
+        $resultado = $obj->getTopic();
+        
+
+        $this->assertIsString($resultado);
+
+        
+    }
 
 }
+
+
