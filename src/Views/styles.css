@@ -1,0 +1,227 @@
+
+/* RESET STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    }
+    
+    li {
+    list-style: none;
+    }
+
+    body{
+        background-color: black;
+    }
+
+    .container {
+        max-width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+    }
+    main {
+    width: 100%;
+    /* height: 80%; */
+    
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    }
+
+    .titulo {
+        color: red;
+        text-align: center;
+        font-family: 'Butcherman', cursive;
+        font-size: 4em;
+        word-spacing: 30px;
+        letter-spacing: 2px;
+    }
+    
+    /* PLAYERS CONTAINER */
+    #wheel {
+        height: 70vh;
+        width: 100%;
+       
+        
+        /* GRID TEMPLATE */
+
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        
+        /* PLAYERS FONTS */
+
+        font-family: 'Butcherman', cursive;
+        
+        color: white;
+       
+        /* PLAYERS BACKGOUND */
+
+        /* background-image: url('img/payaso_asesino.jpg'); */
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    /* PLAYER STYLE */
+    .player {    
+        opacity: 1;
+        color: white;
+        font-family: 'Bahiana', cursive;
+        font-size: 1em;
+        letter-spacing: 2px;
+        width: 4em;
+        height: 1em;
+        border-radius: 50%;
+        padding: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: solid 1px white;
+    }
+    
+    /* BUTTONS CONTAINER */
+    #buttons {
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-around;
+    }
+    
+    /* PLAY BUTTON STYLE */
+    .PlayButton{
+        display: inline-block;
+        padding: 15px 25px;
+        font-family: 'Frijole', cursive;
+        font-size: 40px;
+        text-shadow: 4px 4px #000;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: green;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        
+        background-repeat: no-repeat;
+        background-position-x: -90px;
+    }
+    
+    .PlayButton:active, .PlayButton:hover {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    
+    .PlayButtonInactive, .PlayButtonInactive:hover {
+        background-color:  #666;
+        box-shadow: 0 5px #3e8e41;
+        transform: translateY(4px);
+        cursor: default;
+    }
+    
+    /* KILL BUTTON STYLE */
+    .KillButton{
+        display: inline-block;
+        padding: 15px 25px;
+        font-family: 'Frijole', cursive;
+        font-size: 40px;
+        text-shadow: 4px 4p;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: black;
+        background-color: rgb(230, 23, 23);
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+       
+        background-repeat: no-repeat;
+        background-position-x: -90px;
+    }
+    
+    .KillButton:active, .KillButton:hover{
+        background-color: #aa1c1c;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    
+    .KillButtonInactive, .KillButtonInactive:hover {
+        background-color:  #666;
+        box-shadow: 0 0px #aa1c1c;
+        /* transform: translateY(4px); */
+        cursor: default;
+    }
+    
+    
+    /* RESET BUTTON STYLE */
+    .ResetButton{
+        display: inline-block;
+        padding: 15px 25px;
+        font-family: 'Frijole', cursive;
+        font-size: 40px;
+        text-shadow: 4px 4px #000;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: blue;
+        background-color: rgb(190, 188, 33);
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+      
+        background-repeat: no-repeat;
+        background-position-x: -90px;
+        background-position-y: -90px;
+    }
+    
+    
+    .ResetButton:active, .ResetButton:hover{
+        background-color: #8e8d3e;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    
+    .ResetButtonInactive, .KillButtonInactive:hover{
+        background-color: #666;
+        box-shadow: 0 5px #8e8d3e;
+        transform: translateY(4px);
+        cursor: default;
+    }
+    
+    
+    /*PINTA EL JUGADOR SELECCIONADO POR FUNCION RANDOM*/
+    .player-selected {
+        background-color: rgb(140, 0, 255);
+    }
+    
+    .dead {
+        background-color: red;
+    }
+  
+    .tools {
+        color: white;
+        /* position: absolute; */
+        margin: 0 auto;
+    }
+
+    a {
+        color: white;    
+        font-family: 'bahiana';
+        padding: 0 20px;
+
+    }
+    a:hover {
+        color: red;
+    }

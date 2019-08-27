@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wheel of Doom v 1.2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Bahiana|Butcherman|Frijole&display=swap" rel="stylesheet">  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="titulo">WHEEL OF DOOM</h1>
+      </header>
+      <main>
+        
+          
+          <div class="tools">
+              <a href="#" onclick="deletePlayers()">DELETE ALL</a>
+              <a href="#" onclick="allCoders()">ADD ALL CODERS</a>
+              <input type="text" id="newPlayer">
+              <a href="#" onclick="addPlayer()">ADD PLAYER</a>
+              
+            </div>
+          <ul id="wheel"></ul>
+          
+        </main>
+        <div id="buttons">
+          <button href="#" class="PlayButton" id="go" onclick="play()">START</button>
+          <button href="#" class="KillButton KillButtonInactive" id="kill" onclick="kill()">KILL</button>
+          <button href="#"  class="ResetButton" id="reset" onclick="reset()">RESET</button>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
