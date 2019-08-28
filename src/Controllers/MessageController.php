@@ -13,8 +13,8 @@ class MessageController {
 
         $listmessages = new Message();
         $allMessages = $listmessages->getAllMessages();
-        //$codersArray = [];
-        //$i=0;
+        $msgArray = [];
+        $i=0;
         return $allMessages;
        
 
@@ -23,7 +23,7 @@ class MessageController {
 
 }
 
-/* 
+
 $init = new MessageController();
 $allMessages = $init->listMessages();
 
@@ -34,4 +34,4 @@ foreach ($allMessages as $message)
     echo $message->getTopic();
     echo '<br>';
     
-}; */
+};

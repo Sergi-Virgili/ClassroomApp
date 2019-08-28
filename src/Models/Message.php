@@ -11,6 +11,8 @@
         private $topic;
         private $timestamp;
         private $resolved;
+        private $teacherId;
+        private $coderId;
         private $allMessages = [];
         private $allResolvedMessages = [];
 
@@ -49,14 +51,14 @@
         function getAllMessages(){
 
                 
-            $obj = new MessagesRepository(); 
+            $MessagesRepo = new MessagesRepository(); 
             
-            $response = $obj->selectAllMessages();
+            $MessagesArray = $MessagesRepo->selectAllMessages();
            
-            foreach($response as $message)
+            foreach($MessagesArray as $message)
             {
                 array_push($this->allMessages, 
-                new Message($message['id'], $message['userId'], $message['datestamp'], $message['resolved'], $message['teacherId']));
+                new Message($message['id'], $message['userId'], $message['topic'], $message['datestamp'], $message['resolved'], $message['teacherId']));
             }
     
             return $this->allMessages;
