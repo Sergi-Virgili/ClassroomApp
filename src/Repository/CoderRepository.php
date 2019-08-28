@@ -32,7 +32,7 @@ class CoderRepository
     {
         $this->connectDB();
         $conn = $this->conexion;
-        $query = "SELECT * FROM coder";
+        $query = "SELECT * FROM $this->table";
         $respuestas = mysqli_query($conn, $query);
 
         $arrayCoders = array();
@@ -53,12 +53,6 @@ class CoderRepository
 
     }
 
-    function selectByDead()
-    {
-        $query = 'SELECT * 
-        FROM $this->db 
-        WHERE dead = 1';
-    }
 
     function updateById($id)
     {

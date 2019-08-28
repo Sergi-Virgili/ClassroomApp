@@ -9,8 +9,17 @@
         private $id;
         private $topic;
         private $timestamp;
-        private $status;
+        private $resolved;
 
+        function __construct($id = null, $topic = '', $resolved = false )
+        {
+            $this->id = $id;
+            $this->topic = $topic;
+            $this->resolved = $resolved;
+
+        }
+
+        
 
         public function setId($id)
         {
@@ -36,6 +45,10 @@
         function getStatus()
         {
             return $this->dead;
+        }
+
+        function getAllMessages(){
+            
         }
 
 

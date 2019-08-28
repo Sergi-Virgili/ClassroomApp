@@ -36,6 +36,13 @@ class MessageTest extends TestCase
         
     }
 
+    function testCreateByData(){
+        $msg = new Message (1);
+        $response = $msg->getId();
+
+        $this->assertEquals('1', $response);
+    }
+
 }
 
 

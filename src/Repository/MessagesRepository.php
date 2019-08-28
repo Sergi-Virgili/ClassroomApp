@@ -61,11 +61,12 @@ class Repository {
         return $execute;
     }
 
-   function insertMessage($table, $usr_id, $trn_texto, $timestamp, $trn_formador_id)
-   $trn_status, $trn_formador_id
-   $this->connectDB;
-   $conn=$this->conexion;
-   $query="INSERT INTO $this->table(trn_usr_id, trn_texto, trn_date, trn_status,trn_formador_id) VALUES('$usr_id', '$trn_texto', '$timestamp', '$trn_status', '$trn_formador_id')";
+   function insertMessage($userId, $teacherId, $topic, $resolved){
+   
+    $this->connectDB;
+    $conn=$this->conexion;
+    $query="INSERT INTO $this->table( user_id, topic, teacher_id, resolved) VALUES('$userId', '$topic', '$teacherId', '$resolved')";
+   }
 
 }
 
