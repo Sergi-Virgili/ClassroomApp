@@ -69,10 +69,19 @@
            
            foreach($MessagesArray as $message)
             {
-                array_push($this->allMessages, 
-                new Message ($message['id'],  $message['userId'], $message['topic'], $message['datestamp'], $message['teacherId'])
-            ); 
-            } 
+
+                $data = 
+                [   
+                    'id' => $message['id'],
+                    'topic' => $message['topic'],
+                    'teacherId' => $message['teacherId'],
+                    'userId' =>  $message['userId'],
+                    'resolved' => false
+                ];
+                array_push($this->allMessages, new Message($data)
+            );  
+            }
+
     
             //return $MessagesArray;
             return $this->allMessages;
@@ -130,25 +139,33 @@ $allMessages = new Message();
 // $id = $allMessages->getTeacherId();
 
 
-$data = 
-[   
-    'id' => 5,
-    'topic' => 'Esto es el texto el mensaje',
-    'teacherId' => 23,
-    'userId' => 4,
-    'resolved' => false,
-];
-$Message = new Message($data);
+// $data = 
+// [   
+//     'id' => 5,
+//     'topic' => 'Esto es el texto el mensaje',
+//     'teacherId' => 23,
+//     'userId' => 4,
+//     'resolved' => false,
+// ];
+ $message = new Message();
+
+ $arrayMessages = $message->getAllMessages();
+
+// echo  $Message->getId(). ' ';
+// echo  $Message->getTopic(). ' ';
+// echo  $Message->getTeacherId(). ' ';
+// echo  $Message->getUserId(). ' ';
 
 
-echo  $Message->getId(). ' ';
-echo  $Message->getTopic(). ' ';
-echo  $Message->getTeacherId(). ' ';
-echo  $Message->getUserId(). ' ';
-
-
+<<<<<<< HEAD
 // foreach  ($arrayMessages as $Message)
 // {
 // echo $Message->getId() . " topic: " . $Message->getTopic() . $Message->getTeacherId() . " coder: " . " Teacher: " . $Message->getTeacherId() ."<br>"; 
 // };
 >>>>>>> 15d587de0a97c4ba5d60e356efef9e168223acb4
+=======
+foreach  ($arrayMessages as $Message)
+{
+echo $Message->getId() . " topic: " . $Message->getTopic() . " teacher: " . $Message->getTeacherId()  . " Coder: " . $Message->getUserId() ."<br>"; 
+};
+>>>>>>> 9944dd1c9f070f5f0f9a7a1c2f8cbf351349c979
