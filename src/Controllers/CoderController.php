@@ -8,7 +8,20 @@ require '../Models/Coder.php';
 
 class CoderController {
    
+    function login ($email, $password){
+        $user = new User();
+        $user->setEmail($email);
+        $user->setPassword($password);
+        
+        if (!$user->validateUser()) {
+            $this->view('login.php');
+            return;
+        };
+        $this->session($user->getId());
+        $this->view('coderView.php');
 
+
+    }
     public function listCoders() {
 
         $codersInit = new Coder();
@@ -38,8 +51,8 @@ class CoderController {
 
     }
 
-    function view(){
-        header('Location:../Views/CoderView.php');
+    function view($view){
+        header($view);
     }
 
 }

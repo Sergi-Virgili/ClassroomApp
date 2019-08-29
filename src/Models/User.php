@@ -1,16 +1,17 @@
 <?php
-namespace App\Models;
+// namespace App\Models;
 // use App\Repository\UserRepository;
 // require_once '..\Repository\CoderRepository.php';
-// require_once '../Repository/CoderRepository.php';
+require_once '../Repository/UserRepository.php';
 
 class User
 {
-    private $id;
-    private $name = "hola";
-    private $password = "password";
-    private $role;
-    public $isLoged = false;
+    private $id = null;
+    private $name = "";
+    private $password = "";
+    private $role = null;
+    private $email = '';
+    private  $isLoged = false;
     private $allUsers = [];
 
     function __construct($data = [])
@@ -20,6 +21,7 @@ class User
         $this->id = $data['id'];
         $this->password = $data['password'];
         $this->role = $data['role'];
+        $this->email = $data['email'];
         $this->isLoged = $data['isLoged'];
         
 
@@ -69,55 +71,55 @@ class User
 
     function getAllUsers() 
     {
-        // $repo = new CoderRepository();
-        // $arrayCoders= $repo->selectAll();
+        $repo = new UserRepository();
+        $array= $repo->selectAll();
 
-        // foreach($arrayCoders as $coder)
-        // {
-        //     array_push($this->allCoders, 
-        //     new Coder($coder['id'], $coder['coderName'], $coder['state']));
-        // }
+        foreach($array as $user)
+        {
+            $data = [
+                'id' => $user['id'],
+                'name' => $user['name'],
+                'role' => $user['role'],
+                'email' => $user['email'],
+                'password'=> $user['password']
+            ];
+            array_push($this->allUsers, new User($data));
+        };
 
-        // return $this->allCoders;
+        return $this->allUsers;
     }
 
-    function userValidate() 
-    {
-
-    }
+   
 
  
 
     
 }
 
-$data = 
-[   
-    'role' => 1,
-    'name' => 'sergi',
-    'password' => 1234567,
+// $data = 
+// [   
+//     'role' => 1,
+//     'name' => 'sergi',
+//     'password' => 1234567,
     
-    'isLoged' => true
-];
-$user = new User($data);
-//echo $user->getName();  
-  
+//     'isLoged' => true
+// ];
+$userlist = new User();
+$allUsers = $userlist->getAllUsers();
+// print_r ($allUsers);
+
+ //echo $user->getName();  
+foreach ($allUsers as $user) { 
 echo $user->getId() . ' ';  
 echo $user->getName(). ' ';  
 echo $user->getPassword(). ' ';  
-echo $user->getRole(). ' ';  
-echo $user->isLoged;  
-// //$coder->getCodersAlive();
-// $array = $coder->getCodersAlive();
-// $coder->random();
+echo $user->getRole(). '<br> ' ;  
+ 
+};
 
 
-// echo 'allcoders: <br>';
 
-// foreach ($array as $coder){
-//     echo $coder->getName();
-//     echo $coder->getStatus();
-// }
+
 
 
 

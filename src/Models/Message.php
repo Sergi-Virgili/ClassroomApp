@@ -106,7 +106,7 @@
     };
 
 
-$allMessages = new Message();
+//$allMessages = new Message();
 //$arrayMessages = $allMessages->getAllMessages();
 // print_r ($arrayMessages)
 // ;

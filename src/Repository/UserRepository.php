@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Repository;
+// namespace App\Repository;
 
-class CoderRepository
+class UserRepository
 {
-    private $table = 'coder';
+    private $table = 'users';
     private $conexion;
     private $server = "localhost";
     private $user = "root";
     private $password = "root";
-    private $db = "db_wheel";
+    private $db = "classroom-app";
 
     function connectDB()
     {
@@ -25,6 +25,7 @@ class CoderRepository
 
         $response = "Conexion Exitosa";
         
+       
         return $response;
     }
 
@@ -35,44 +36,43 @@ class CoderRepository
         $query = "SELECT * FROM $this->table";
         $respuestas = mysqli_query($conn, $query);
 
-        $arrayCoders = array();
+        $arrayUsers = array();
         while ($row = mysqli_fetch_array( $respuestas ))
         {
-            $arrayCoders[] = array 
+            $arrayUsers[] = array 
             (
-            "id" => $row['id_coder'],
-            "coderName" => $row['name_coder'],
-            "state"=> $row['dead']
+            "id" => $row['id'],
+            "name" => $row['name'],
+            "role"=> $row['role'],
+            "email"=> $row['email'],
+            "password"=> $row['password']
         );
         }
-        return $arrayCoders;
+        return $arrayUsers;
     }
-
-    function selectById($id)
-    {
-
-    }
-
-
-    function updateById($id)
-    {
-        $this->connectDB();
-        $conn=$this->conexion;
-        $query="UPDATE $this->table SET dead=1 WHERE id_coder='$id'";
-        $execute = mysqli_query($conn, $query);
-        return $execute;
-    }
-
-    function updateAll()
-    {
-        $this->connectDB();
-        $conn=$this->conexion;
-        $query="UPDATE $this->table SET dead=0";
-        $execute = mysqli_query($conn, $query);
-        return $execute;
-    }
-
 }
+    
+
+
+//     function updateById($id)
+//     {
+//         $this->connectDB();
+//         $conn=$this->conexion;
+//         $query="UPDATE $this->table SET dead=1 WHERE id_coder='$id'";
+//         $execute = mysqli_query($conn, $query);
+//         return $execute;
+//     }
+
+//     function updateAll()
+//     {
+//         $this->connectDB();
+//         $conn=$this->conexion;
+//         $query="UPDATE $this->table SET dead=0";
+//         $execute = mysqli_query($conn, $query);
+//         return $execute;
+//     }
+
+// }
 
 //UPDATE table_name
 //SET column1=value, column2=value2,...
@@ -84,3 +84,12 @@ class CoderRepository
 //$obj->selectAll();
 //$obj->updateById(4);
 //$obj->updateAll();
+
+
+
+// $repo = new UserRepository; 
+// $array = $repo->selectAll();
+// echo $array[0]['name'];
+// foreach ($array as $user) {
+//     echo $user['name'];
+// }
