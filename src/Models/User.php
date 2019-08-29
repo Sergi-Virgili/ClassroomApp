@@ -1,22 +1,28 @@
 <?php
 namespace App\Models;
-use App\Repository\UserRepository;
+// use App\Repository\UserRepository;
 // require_once '..\Repository\CoderRepository.php';
 // require_once '../Repository/CoderRepository.php';
 
 class User
 {
     private $id;
-    private $name = "";
-    private $password = "";
+    private $name = "hola";
+    private $password = "password";
     private $role;
-    private $isLoged = false;
+    public $isLoged = false;
     private $allUsers = [];
 
-    function __construct ($id = null, $name = "")
+    function __construct($data = [])
     {
-        $this->id = $id;
-        $this->name = $name;
+        
+        $this->name = $data['name'];
+        $this->id = $data['id'];
+        $this->password = $data['password'];
+        $this->role = $data['role'];
+        $this->isLoged = $data['isLoged'];
+        
+
         // TO DOOOOO
     }
 
@@ -48,7 +54,7 @@ class User
 
     function getPassword()
     {
-        return $this->$password;
+        return $this->password;
     }
 
     function setRole($role)
@@ -85,7 +91,22 @@ class User
     
 }
 
-// $coder = new Coder();
+$data = 
+[   
+    'role' => 1,
+    'name' => 'sergi',
+    'password' => 1234567,
+    
+    'isLoged' => true
+];
+$user = new User($data);
+//echo $user->getName();  
+  
+echo $user->getId() . ' ';  
+echo $user->getName(). ' ';  
+echo $user->getPassword(). ' ';  
+echo $user->getRole(). ' ';  
+echo $user->isLoged;  
 // //$coder->getCodersAlive();
 // $array = $coder->getCodersAlive();
 // $coder->random();

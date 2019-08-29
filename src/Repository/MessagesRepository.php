@@ -1,12 +1,12 @@
 <?php
-namespace App\Repository;
+//namespace App\Repository;
 class MessagesRepository 
 {    
     private $table = 'messages';
     private $conexion;
     private $server = "localhost";
     private $user = "root";
-    private $password = "";
+    private $password = "root";
     private $db = "classroom-app";
 
     function connectDB()
@@ -41,7 +41,7 @@ class MessagesRepository
             "id" => $row['id'],
             "userId" => $row['user_id'],
             "topic"=> $row['topic'],
-            "datestamp"=> $row['date'],
+            //"datestamp"=> $row['date'],
            // "resolved"=> $row['resolved'],
             "teacherId"=> $row['teacher_id']
         );
@@ -69,14 +69,14 @@ class MessagesRepository
 }
 
 
-/* $obj = new MessagesRepository();
-$response = $obj->selectAll();
+// $obj = new MessagesRepository();
+// $response = $obj->selectAll();
 
 
-foreach  ($response as $Message)
-{
-echo $Message['topic'] . ' user ' . $Message['userId'] .' teacher ' . $Message['teacherId'] . "<br>"; 
-} */
+// foreach  ($response as $Message)
+// {
+// echo $Message['topic'] . ' user ' . $Message['userId'] .' teacher ' . $Message['teacherId'] . "<br>"; 
+// }
 
 
 

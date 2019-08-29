@@ -24,14 +24,14 @@ class MessageController {
 }
 
 
-$init = new MessageController();
-$allMessages = $init->listMessages();
+// $init = new MessageController();
+// $allMessages = $init->listMessages();
 
 
-foreach ($allMessages as $message)
-{   
+// foreach ($allMessages as $message)
+// {   
   
-    echo $message->getTopic();
-    echo '<br>';
+//     echo $message->getTopic();
+//     echo '<br>';
     
-};
+// };
