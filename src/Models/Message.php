@@ -7,20 +7,23 @@
 
     class Message
     {
-        private $id;
-        private $topic;
-        private $timestamp;
-        private $resolved;
-        private $teacherId;
-        private $coderId;
+        private $id = 0;
+        private $topic = '';
+        private $timestamp = 0;
+        private $resolved = 0;
+        private $teacherId = 0;
+        private $userId = 0;
         private $allMessages = [];
         private $allResolvedMessages = [];
 
-        function __construct($id = null, $topic = '', $resolved = false )
+        function __construct($id = 0, $topic = '', $userId = 0, $teacherId = 0 )
         {
             $this->id = $id;
             $this->topic = $topic;
-            $this->resolved = $resolved;
+            
+           
+            $this->$userId = $userId;
+            $this->getTeacherId($teacherId);
         }
         public function setId($id)
         {
@@ -43,21 +46,40 @@
             return $this->topic;
         }
 
-        function getStatus()
+        
+        function setUserId($userId)
         {
-            return $this->dead;
+            $this->userId = $userId;
         }
 
+        function getUserId()
+        {
+            return $this->userId;
+        }
+
+        function setTeacherId($teacherId)
+        {
+            $this->teacherId = $teacherId;
+        }
+
+        function getTeacherId()
+        {
+            return $this->teacherId;
+        }
+
+
+      
         function getAllMessages(){
     
             $MessagesRepo = new MessagesRepository(); 
             
-            $MessagesArray = $MessagesRepo->selectAllMessages();
+            $MessagesArray = $MessagesRepo->selectAll();
            
             foreach($MessagesArray as $message)
             {
                 array_push($this->allMessages, 
-                new Message($message['id'], $message['userId'], $message['topic'], $message['datestamp'], $message['resolved'], $message['teacherId']));
+                new Message($message['id'], $message['topic'],  $message['userId'], $message['teacherId'])
+            );  
             }
     
             return $this->allMessages;
@@ -66,19 +88,35 @@
         }
 
 
-        function getAllSolvedMessages (){
+        function getAllSolvedMessages ()
+        {
 
         }
-        function estoNovalePaNa(){
+        function estoNovalePaNa()
+        {
 
             
         }
 
 
-    }
+    };
 
 
-$obj = new Message();
-$response = $obj->getAllMessages();
+$allMessages = new Message();
+$arrayMessages = $allMessages->getAllMessages();
+print_r ($arrayMessages)
+;
+$allMessages->setTeacherId(2);
+$id = $allMessages->getTeacherId();
 
-print_r ($response);
+
+
+$Message = new Message(5,'hola', 1, 2) ;
+
+
+echo  " coder: " .  $Message->getUserId() . " Teacher: " . $Message->getTeacherId() ."<br>"; 
+
+foreach  ($arrayMessages as $Message)
+{
+echo $Message->getId() . " topic: " . $Message->getTopic() . $Message->getTeacherId() . " coder: " . " Teacher: " . $Message->getTeacherId() ."<br>"; 
+};

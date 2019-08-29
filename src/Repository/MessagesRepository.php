@@ -26,27 +26,27 @@ class MessagesRepository
         return $response;
     }
 
-    function selectAllMessages()
+    function selectAll()
     {
         $this->connectDB();
         $conn = $this->conexion;
         $query = "SELECT * FROM $this->table";
         $response = mysqli_query($conn, $query);
 
-        $arrayAllMessages = array();
+        $arrayAll = array();
         while ($row = mysqli_fetch_array( $response ))
         {
-            $arrayAllMessages[] = array 
+            $arrayAll[] = array 
             (
             "id" => $row['id'],
             "userId" => $row['user_id'],
             "topic"=> $row['topic'],
             "datestamp"=> $row['date'],
-            "resolved"=> $row['resolved'],
+           // "resolved"=> $row['resolved'],
             "teacherId"=> $row['teacher_id']
         );
         }
-        return $arrayAllMessages;
+        return $arrayAll;
     }
 
         
@@ -68,11 +68,16 @@ class MessagesRepository
 
 }
 
-/* 
-$obj = new MessagesRepository();
-$response = $obj->selectAllMessages();
 
-print_r ($response); */
+/* $obj = new MessagesRepository();
+$response = $obj->selectAll();
+
+
+foreach  ($response as $Message)
+{
+echo $Message['topic'] . ' user ' . $Message['userId'] .' teacher ' . $Message['teacherId'] . "<br>"; 
+} */
+
 
 
 
