@@ -65,7 +65,11 @@
            
         }
 
+
         function getAllSolvedMessages (){
+
+        }
+        function estoNovalePaNa(){
 
             
         }
