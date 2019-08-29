@@ -66,6 +66,11 @@
            
         }
 
+        function getAllSolvedMessages (){
+
+            
+        }
+
 
     }
 
