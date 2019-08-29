@@ -84,11 +84,7 @@
         {
 
         }
-        function estoNovalePaNa()
-        {
-
-            
-        }
+       
         function __construct($data = [])
         {
             $this->id = $data['id'];
