@@ -1,14 +1,12 @@
 <?php
 namespace App\Repository;
-class Repository {
-    
-    
-    
+class MessagesRepository 
+{    
     private $table = 'messages';
     private $conexion;
     private $server = "localhost";
     private $user = "root";
-    private $password = "root";
+    private $password = "";
     private $db = "classroom-app";
 
     function connectDB()
@@ -38,7 +36,7 @@ class Repository {
         $arrayAllMessages = array();
         while ($row = mysqli_fetch_array( $response ))
         {
-            $arrayMessages[] = array 
+            $arrayAllMessages[] = array 
             (
             "id" => $row['id'],
             "userId" => $row['user_id'],
@@ -48,7 +46,7 @@ class Repository {
             "teacherId"=> $row['teacher_id']
         );
         }
-        return $arrayMessages;
+        return $arrayAllMessages;
     }
 
         
@@ -70,24 +68,17 @@ class Repository {
 
 }
 
+/* 
+$obj = new MessagesRepository();
+$response = $obj->selectAllMessages();
 
-
-
-/* $selectAll($table);
-$updateById($id);
-
-+ insert($table,data[])
-
-+ selectAllByRole($table, $Role)
-
-+ selectAllByStatus
+print_r ($response); */
 
 
 
 
 
 
-*/
 
 
 ?>
