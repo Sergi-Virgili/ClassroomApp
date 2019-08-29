@@ -69,8 +69,15 @@
            
             foreach($MessagesArray as $message)
             {
-                array_push($this->allMessages, 
-                new Message($message['id'], $message['topic'],  $message['userId'], $message['teacherId'])
+                $data = 
+                [   
+                    'id' => $message['id'],
+                    'topic' => $message['topic'],
+                    'teacherId' => $message['teacherId'],
+                    'userId' =>  $message['userId'],
+                    'resolved' => false
+                ];
+                array_push($this->allMessages, new Message($data)
             );  
             }
     
@@ -107,24 +114,25 @@ $allMessages = new Message();
 // $id = $allMessages->getTeacherId();
 
 
-$data = 
-[   
-    'id' => 5,
-    'topic' => 'Esto es el texto el mensaje',
-    'teacherId' => 23,
-    'userId' => 4,
-    'resolved' => false,
-];
-$Message = new Message($data);
+// $data = 
+// [   
+//     'id' => 5,
+//     'topic' => 'Esto es el texto el mensaje',
+//     'teacherId' => 23,
+//     'userId' => 4,
+//     'resolved' => false,
+// ];
+ $message = new Message();
+
+ $arrayMessages = $message->getAllMessages();
+
+// echo  $Message->getId(). ' ';
+// echo  $Message->getTopic(). ' ';
+// echo  $Message->getTeacherId(). ' ';
+// echo  $Message->getUserId(). ' ';
 
 
-echo  $Message->getId(). ' ';
-echo  $Message->getTopic(). ' ';
-echo  $Message->getTeacherId(). ' ';
-echo  $Message->getUserId(). ' ';
-
-
-// foreach  ($arrayMessages as $Message)
-// {
-// echo $Message->getId() . " topic: " . $Message->getTopic() . $Message->getTeacherId() . " coder: " . " Teacher: " . $Message->getTeacherId() ."<br>"; 
-// };
+foreach  ($arrayMessages as $Message)
+{
+echo $Message->getId() . " topic: " . $Message->getTopic() . " teacher: " . $Message->getTeacherId()  . " Coder: " . $Message->getUserId() ."<br>"; 
+};
