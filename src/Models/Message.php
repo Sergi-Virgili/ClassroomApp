@@ -1,7 +1,7 @@
 <?php
 
-    namespace App\Models;
-    use App\Repository\MessagesRepository;
+    //namespace App\Models;
+    //use App\Repository\essagesRepository;
 
     require_once '../Repository/MessagesRepository.php';
 
@@ -9,22 +9,14 @@
     {
         private $id = 0;
         private $topic = '';
-        private $timestamp = 0;
-        private $resolved = 0;
+       
+        private $resolved;
         private $teacherId = 0;
         private $userId = 0;
         private $allMessages = [];
-        private $allResolvedMessages = [];
+        
 
-        function __construct($id = 0, $topic = '', $userId = 0, $teacherId = 0 )
-        {
-            $this->id = $id;
-            $this->topic = $topic;
-            
-           
-            $this->$userId = $userId;
-            $this->getTeacherId($teacherId);
-        }
+        
         public function setId($id)
         {
             $this->id = $id;
@@ -92,9 +84,14 @@
         {
 
         }
-        function estoNovalePaNa()
+       
+        function __construct($data = [])
         {
-
+            $this->id = $data['id'];
+            $this->topic = $data['topic'];
+            $this->userId = $data['userId'];
+            $this->teacherId = $data['teacherId'];
+            $this->resolved = $data['resolved'];
             
         }
 
@@ -102,6 +99,7 @@
     };
 
 
+<<<<<<< HEAD
 $obj = new Message();
 $arrayMessages = $obj->getAllMessages();
 print_r ($arrayMessages);
@@ -123,3 +121,34 @@ foreach  ($arrayMessages as $Message)
 {
 echo $Message->getId() . " topic: " . $Message->getTopic() . $Message->getTeacherId() . " coder: " . " Teacher: " . $Message->getTeacherId() ."<br>"; 
 }; */
+=======
+$allMessages = new Message();
+//$arrayMessages = $allMessages->getAllMessages();
+// print_r ($arrayMessages)
+// ;
+// $allMessages->setTeacherId(2);
+// $id = $allMessages->getTeacherId();
+
+
+$data = 
+[   
+    'id' => 5,
+    'topic' => 'Esto es el texto el mensaje',
+    'teacherId' => 23,
+    'userId' => 4,
+    'resolved' => false,
+];
+$Message = new Message($data);
+
+
+echo  $Message->getId(). ' ';
+echo  $Message->getTopic(). ' ';
+echo  $Message->getTeacherId(). ' ';
+echo  $Message->getUserId(). ' ';
+
+
+// foreach  ($arrayMessages as $Message)
+// {
+// echo $Message->getId() . " topic: " . $Message->getTopic() . $Message->getTeacherId() . " coder: " . " Teacher: " . $Message->getTeacherId() ."<br>"; 
+// };
+>>>>>>> 15d587de0a97c4ba5d60e356efef9e168223acb4

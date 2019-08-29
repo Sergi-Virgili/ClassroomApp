@@ -53,6 +53,11 @@ class CoderRepository
 
     }
 
+    function selectByUser($id)
+    {
+
+    }
+
 
     function updateById($id)
     {
