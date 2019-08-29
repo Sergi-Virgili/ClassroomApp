@@ -1,15 +1,20 @@
 <?php
 
+
 // namespace App\Repository;
+
+
 
 class UserRepository
 {
-    private $table = 'users';
+
     private $conexion;
     private $server = "localhost";
     private $user = "root";
     private $password = "root";
+    private $table = 'users';
     private $db = "classroom-app";
+
 
     function connectDB()
     {
@@ -25,6 +30,7 @@ class UserRepository
 
         $response = "Conexion Exitosa";
         
+
        
         return $response;
     }
@@ -50,46 +56,34 @@ class UserRepository
         }
         return $arrayUsers;
     }
-}
+
     
 
 
-//     function updateById($id)
-//     {
-//         $this->connectDB();
-//         $conn=$this->conexion;
-//         $query="UPDATE $this->table SET dead=1 WHERE id_coder='$id'";
-//         $execute = mysqli_query($conn, $query);
-//         return $execute;
-//     }
+    function SelectByEmail($email)
+    {
+        $this->connectDB();
+        $conn = $this->conexion;
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $userConnection = mysqli_query($conn, $query);
 
-//     function updateAll()
-//     {
-//         $this->connectDB();
-//         $conn=$this->conexion;
-//         $query="UPDATE $this->table SET dead=0";
-//         $execute = mysqli_query($conn, $query);
-//         return $execute;
-//     }
-
-// }
-
-//UPDATE table_name
-//SET column1=value, column2=value2,...
-//WHERE some_column=some_value
+        $userDataArray = array();
+        while ($userData = mysqli_fetch_array( $userConnection ))
+        {
+            $userDataArray[] = array 
+            (
+            "id" => $userData['id'],
+            "name" => $userData['name'],
+            "email"=> $userData['email'],
+            "role"=> $userData['role']
+        );
+        }
+        return $userDataArray;
 
 
-//$obj = new CoderRepository();
-//$obj->connectDB();
-//$obj->selectAll();
-//$obj->updateById(4);
-//$obj->updateAll();
+    }
 
+    
 
+}
 
-// $repo = new UserRepository; 
-// $array = $repo->selectAll();
-// echo $array[0]['name'];
-// foreach ($array as $user) {
-//     echo $user['name'];
-// }

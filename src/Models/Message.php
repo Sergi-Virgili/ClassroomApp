@@ -67,8 +67,9 @@
             
             $MessagesArray = $MessagesRepo->selectAll();
            
-            foreach($MessagesArray as $message)
+           foreach($MessagesArray as $message)
             {
+
                 $data = 
                 [   
                     'id' => $message['id'],
@@ -80,9 +81,10 @@
                 array_push($this->allMessages, new Message($data)
             );  
             }
+
     
+            //return $MessagesArray;
             return $this->allMessages;
-            
            
         }
 
@@ -105,34 +107,3 @@
 
     };
 
-
-//$allMessages = new Message();
-//$arrayMessages = $allMessages->getAllMessages();
-// print_r ($arrayMessages)
-// ;
-// $allMessages->setTeacherId(2);
-// $id = $allMessages->getTeacherId();
-
-
-// $data = 
-// [   
-//     'id' => 5,
-//     'topic' => 'Esto es el texto el mensaje',
-//     'teacherId' => 23,
-//     'userId' => 4,
-//     'resolved' => false,
-// ];
- $message = new Message();
-
- $arrayMessages = $message->getAllMessages();
-
-// echo  $Message->getId(). ' ';
-// echo  $Message->getTopic(). ' ';
-// echo  $Message->getTeacherId(). ' ';
-// echo  $Message->getUserId(). ' ';
-
-
-foreach  ($arrayMessages as $Message)
-{
-echo $Message->getId() . " topic: " . $Message->getTopic() . " teacher: " . $Message->getTeacherId()  . " Coder: " . $Message->getUserId() ."<br>"; 
-};

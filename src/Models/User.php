@@ -1,8 +1,11 @@
 <?php
 // namespace App\Models;
 // use App\Repository\UserRepository;
+
 // require_once '..\Repository\CoderRepository.php';
 require_once '../Repository/UserRepository.php';
+
+
 
 class User
 {
@@ -89,26 +92,57 @@ class User
         return $this->allUsers;
     }
 
+
    
+
+
+    function userValidate() 
+    {
+        
+        $UsersRepo = new UserRepository(); 
+        $arrayUserData = $UsersRepo->ValidateEmailAndPassword();
+
+    }
+
+}
+
+/* 
+        
+  
+  
+          
+        if($conteo == 1 and $login_rol == 2) {        
+           $_SESSION['login_user'] = $username;
+           header("location: lista_formador.php");
+        }
+  
+        if($conteo == 1 and $login_rol == 1) {        
+           $_SESSION['login_user'] = $username;
+           header("location: lista.php");
+        } */
+
+
+    
+
 
  
 
     
-}
 
-// $data = 
-// [   
-//     'role' => 1,
-//     'name' => 'sergi',
-//     'password' => 1234567,
+
+// // $data = 
+// // [   
+// //     'role' => 1,
+// //     'name' => 'sergi',
+// //     'password' => 1234567,
     
-//     'isLoged' => true
-// ];
+// //     'isLoged' => true
+// // ];
 $userlist = new User();
 $allUsers = $userlist->getAllUsers();
-// print_r ($allUsers);
+// // print_r ($allUsers);
 
- //echo $user->getName();  
+//  //echo $user->getName();  
 foreach ($allUsers as $user) { 
 echo $user->getId() . ' ';  
 echo $user->getName(). ' ';  

@@ -66,6 +66,11 @@ class MessagesRepository
     $query="INSERT INTO $this->table( user_id, topic, teacher_id, resolved) VALUES('$userId', '$topic', '$teacherId', '$resolved')";
    }
 
+
+
+
+
+   
 }
 
 
